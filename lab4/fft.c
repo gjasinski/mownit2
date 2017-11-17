@@ -3,7 +3,7 @@
 #include <math.h>
 
 int N = 256;
-double Pi = 3.14;
+double Pi = 3.1415926535;
 
 double* generate256Arr_1();
 double* generate256Arr_2();
@@ -38,4 +38,14 @@ double* generate256Arr_2(){
 		fprintf(f, "%lf\n", arr[i]);
 	}
 	fclose(f);
+}
+
+double* makeFFT(double* data){
+	FILE *f = fopen("fft_3_file.txt", "w");
+  	int i;
+   	gsl_fft_real_radix2_transform (data, 1, N);
+	for (i = 0; i < N; i++)
+    	{
+		fprintf(f, "%lf\n", data[i]);
+ 	}
 }
