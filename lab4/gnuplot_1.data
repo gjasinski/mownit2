@@ -1,0 +1,6 @@
+set term png
+set output "fft_1.png"
+plot "fft_1_file.txt" title "sygnał" with linespoints ls 1
+set term png
+set output "fft_2.png"
+plot "fft_2_file.txt" title "sygnał z szumem" with linespoints ls 1
