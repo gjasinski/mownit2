@@ -1,8 +1,9 @@
 CC=gcc
 GSL_HOME=
 
-CFLAGS=-I$(GSL_HOME)/include
-LDFLAGS=-L$(GSL_HOME)/lib -lgsl -lgslcblas -lm
+#CFLAGS=-I$(GSL_HOME)/include
+#LDFLAGS=-L$(GSL_HOME)/lib -lgsl -lgslcblas -lm
+LDFLAGS=-LLIBDIR
 
 all: dokladnosc
 
