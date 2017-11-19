@@ -1,0 +1,12 @@
+set term png
+set xlabel "size in x * 100"
+set ylabel "time [us]"
+set output "decomposition.png"
+plot "decomposition.txt" title "time of decomposition in us"
+
+set term png
+set xlabel "size in x * 100"
+set ylabel "time [us]"
+set yrange [-1000:5000]
+set output "solve.png"
+plot "solve.txt" title "time of solving in us"
