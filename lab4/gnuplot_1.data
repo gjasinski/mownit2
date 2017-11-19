@@ -1,6 +1,26 @@
 set term png
-set output "fft_1.png"
-plot "fft_1_file.txt" title "sygnał" with linespoints ls 1
-set term png
-set output "fft_2.png"
-plot "fft_2_file.txt" title "sygnał z szumem" with linespoints ls 1
+set output "measurements/signal_file.png"
+plot "measurements/signal_file.txt" title "sygnał" with linespoints ls 1
+
+set output "measurements/noise_file.png"
+plot "measurements/noise_file.txt" title "sygnał z szumem" with linespoints ls 1
+
+
+set output "measurements/reversed_fft_cleared_noise_file.png"
+plot "measurements/reversed_fft_cleared_noise_file.txt" title "oczyszczony sygnał z szumem" with linespoints ls 1
+
+#printArrToFile(clearedFftArr, "measurements/reversed_fft_cleared_noise_file.txt");
+
+
+set style fill solid
+set boxwidth 1
+set xrange [0:1000]
+set xtics 100
+set output "measurements/fft_signal_file.png"
+plot "measurements/fft_signal_file.txt" title "sygnał FFT" with boxes
+
+set output "measurements/fft_noise_file.png"
+plot "measurements/fft_noise_file.txt" title "szum FFT" with boxes
+
+set output "measurements/fft_cleared_noise_file.png"
+plot "measurements/fft_cleared_noise_file.txt" title "szum FFT oczyszczony" with boxes

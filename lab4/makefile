@@ -3,7 +3,7 @@ CC=gcc
 all: fft
 
 fft: fft.c
-	$(CC) -lm -o fft $^
+	$(CC) -o fft $^ -lgsl -lgslcblas -lm
 
 clean:
 	rm -f *.o
