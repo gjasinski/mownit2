@@ -41,7 +41,7 @@ int main (void){
 double* generate256Arr_1(){
 	double* arr = calloc(N, sizeof(double));
 	for(int i = 0; i < N; i++){
-		arr[i]=cos(4*Pi*i/N)+cos(16*Pi*i/N)/5+cos(32*Pi*i/N)/8+cos(128*Pi*i/N)/16;
+		arr[i]=cos(4*Pi*i/N)+cos(16*Pi*i/N)/5+cos(32*Pi*i/N)/8+cos(128*Pi*i/N)/64;
 	}
 	return arr;
 }
