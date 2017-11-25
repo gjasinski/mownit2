@@ -1,9 +1,9 @@
 CC=gcc
 
-all: main
+all: monteCarloGsl
 
-fft: main.c
-	$(CC) -o main $^ -lgsl -lgslcblas -lm
+monteCarloGsl: monteCarloGsl.c
+	$(CC) -o monteCarloGsl $^ -lgsl -lgslcblas -lm
 
 clean:
 	rm -f *.o

@@ -6,7 +6,7 @@
 static int MONTE_CARLO_ITERATIONS = 100000;
 
 double generateRandomDoubleFromZeroTo(double maxValue);
-double findMaxValue(int start, int end, double (*function)(double));
+double findMaxValue(double start, double end, double (*function)(double));
 double hitAndMiss(double start, double end, double (*function)(double));
 double xToPowerOfTWo(double x){
   return x * x;
@@ -23,10 +23,9 @@ int main (void){
   double sumXToPowerOfTwo = 0.0;
   double sumOneDivSqrtOfX = 0.0;
   double step;
-	for(int subRanges = 1; subRanges < 10; subRanges++){
+	for(int subRanges = 1; subRanges < 1000; subRanges++){
       step = 1.0 / (double)subRanges;
       double currX = 0.0;
-      printf("step %lf\n", step);
       for(int j = 0; j < subRanges; j++){
         sumOneDivSqrtOfX += hitAndMiss(currX, currX + step, oneDivSqrtOfX);
         sumXToPowerOfTwo += hitAndMiss(currX, currX + step, xToPowerOfTWo);
@@ -34,19 +33,21 @@ int main (void){
       }
     sumOneDivSqrtOfX += hitAndMiss(currX, 1.0, oneDivSqrtOfX);
     sumXToPowerOfTwo += hitAndMiss(currX, 1.0, xToPowerOfTWo);
-    printf("%d %lf\n", subRanges, sumOneDivSqrtOfX);
     printf("%d %lf\n", subRanges, sumXToPowerOfTwo);
+    fprintf(f1, "%d %lf\n", subRanges, sumXToPowerOfTwo);
+    printf("%d %lf\n", subRanges, sumOneDivSqrtOfX);
+    fprintf(f2, "%d %lf\n", subRanges, sumOneDivSqrtOfX);
     sumXToPowerOfTwo = 0.0;
-    sumXToPowerOfTwo = 0.0;
+    sumOneDivSqrtOfX = 0.0;
   }
-
+  fclose(f1);
+  fclose(f2);
   return 0;
 }
 
 
 double hitAndMiss(double start, double end, double (*function)(double)){
   double maxValue = findMaxValue(start, end, function);
-  //printf("maxValue %lf \n", maxValue);
   double minValue = 0.0;
   int hit = 0;
   int miss = 0;
@@ -64,7 +65,7 @@ double hitAndMiss(double start, double end, double (*function)(double)){
   return (end - start) * maxValue * hit / (hit + miss);
 }
 
-double findMaxValue(int start, int end, double (*function)(double)){
+double findMaxValue(double start, double end, double (*function)(double)){
   double maxIntValue = 2147483647.0;
   double maxValue = 0.0;
   double currX = start;
