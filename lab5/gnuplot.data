@@ -1,0 +1,10 @@
+set term png
+set logscale x
+set ylabel "wynik"
+set xlabel "Ilość podziałów - każdy podział próbkuje 100000 punktów"
+
+set output "oneDivSqrtOfX.png"
+plot "oneDivSqrtOfX" title "Funkcja 1/sqrt(x) - dokładna wartość = 2.0" #with dots
+
+set output "xToPowerOfTWo.png"
+plot "xToPowerOfTWo" title "Funkcja x^2 - dokładna wartość = 1/3"# with dots

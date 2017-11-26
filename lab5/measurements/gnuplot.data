@@ -1,0 +1,22 @@
+set term png
+set logscale xy
+set ylabel "błąd"
+set xlabel "Ilość wywołań funkcji"
+set output "miserOneDivSqrtOfX.png"
+
+plot "miserOneDivSqrtOfX" title "Metoda MISER - funkcja 1/sqrt(x)" with dots
+
+set output "plainOneDivSqrtOfX.png"
+plot "plainOneDivSqrtOfX" title "Metoda PLAIN - funkcja 1/sqrt(x)" with dots
+
+set output "veagasOneDivSqrtOfX.png"
+plot "veagasOneDivSqrtOfX" title "Metoda VEGAS - funkcja 1/sqrt(x)" with dots
+
+set output "miserXToPowerTwo.png"
+plot "miserXToPowerTwo" title "Metoda MISER - funkcja x^2" with dots
+
+set output "plainXToPowerTwo.png"
+plot "plainXToPowerTwo" title "Metoda PLAIN - funkcja x^2" with dots
+
+set output "veagasXToPowerTwo.png"
+plot "veagasXToPowerTwo" title "Metoda VEGAS - funkcja x^2" with dots
